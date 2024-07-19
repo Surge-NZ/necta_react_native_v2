@@ -1,19 +1,21 @@
-import { StyleSheet, Image } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
+import { StyleSheet, Image, FlatList } from 'react-native';
 import { Text, View } from '@/components/Themed';
-import tweets from '../../assets/data/tweets'
+import EditScreenInfo from '@/components/EditScreenInfo';
 import Tweet from '../../components/Tweet'
+import tweets from '../../assets/data/tweets'
 
 
 export default function TabOneScreen() {
   return (
       <View style={styles.page}>
-      <Tweet/>
-      <Tweet/>
+      {/* <Tweet tweet={tweets[0]}/> */}
+        <FlatList 
+          data={tweets} 
+          renderItem={({item}) => <Tweet tweet={item}/>}/>
       </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   page: {

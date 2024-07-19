@@ -1,32 +1,22 @@
-import { StyleSheet, FlatList, Image } from 'react-native';
+import { StyleSheet, Image } from 'react-native';
+import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
-import tweets from '../assets/data/tweets';
 
-// Tweet component to display individual tweets
+
 const Tweet = ({ tweet }) => {
   return (
     <View style={styles.container}>
-      <Image 
-        source={{ uri: tweet.user.image }} 
-        style={styles.userImage}
-      />
-      <View style={styles.mainContainer}>
-        <Text style={styles.name}>{tweet.user.name}</Text>
-        <Text style={styles.content}>{tweet.content}</Text>
-      </View>
-    </View>
-  );
-}
-
-// Main component to map over tweets and display them
-const TweetList = () => {
-  return (
-    <FlatList 
-      data={tweets}
-      renderItem={({ item }) => <Tweet tweet={item} />}
-      keyExtractor={(item) => item.id.toString()}
+    <Image 
+      src={tweet.user.image} 
+      style={styles.userImage}
     />
-  );
+    <View style={styles.mainContainer}>
+    <Text style={styles.name}>{tweet.user.name}</Text>
+    <Text style={styles.content}>{tweet.content}</Text>
+    </View>
+</View>
+  )
+
 }
 
 const styles = StyleSheet.create({
@@ -43,10 +33,12 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     flex: 1,
     backgroundColor: 'black',
+    
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    
   },
   separator: {
     marginVertical: 30,
@@ -54,19 +46,23 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   userImage: {
-    width: 50, 
+    width:50, 
     height: 50, 
     borderRadius: 50
+
   },
   name: {
     fontWeight: '600',
     color: 'white',
+
   },
   content: {
     lineHeight: 20,
     marginTop: 5,
     color: 'white',
+    
   }
 });
 
-export default TweetList;
+
+export default Tweet
