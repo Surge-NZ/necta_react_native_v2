@@ -13,5 +13,6 @@ export type TweetProps = {
       numberOfComments: number;
       numberOfRetweets: number;
       numberOfLikes: number;
+      impressions: number;
     };
   };
