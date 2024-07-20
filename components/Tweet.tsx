@@ -2,8 +2,25 @@ import { StyleSheet, Image } from 'react-native';
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 
+type TweetProps = {
+  tweet: {
+    id: string;
+    user: {
+      id: string;
+      name: string;
+      username: string;
+      image: string;
+    };
+    createdAt: string;
+    content: string;
+    image?: string;
+    numberOfComments: number;
+    numberOfRetweets: number;
+    numberOfLikes: number;
+  };
+};
 
-const Tweet = ({ tweet }) => {
+const Tweet = ({ tweet }: TweetProps) => {
   return (
     <View style={styles.container}>
     <Image 
