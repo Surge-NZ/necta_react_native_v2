@@ -49,8 +49,7 @@ const Tweet = ({ tweet }: TweetProps) => {
 }
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start', // Changed from 'center' to 'flex-start'
     flexDirection: 'row',
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth, 
@@ -97,6 +96,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 50,
+    alignSelf: 'flex-start', // Added to align the image at the top
   },
   name: {
     fontWeight: '600',

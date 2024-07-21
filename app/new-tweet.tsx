@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, ScrollView, Pressable, Keyboard } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 const images = [
   { uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg' },
@@ -35,6 +36,11 @@ export default function NewTweet() {
 
   useEffect(() => {
     navigation.setOptions({
+    headerLeft: () => (
+        <Pressable onPress={() => navigation.goBack()} style={styles.closeButton}>
+            <Ionicons name="close" size={24} color="white" />
+        </Pressable>
+        ),
       headerRight: () => (
         <Pressable style={styles.postButton} onPress={handlePostTweet}>
           <Text style={styles.postButtonText}>Post</Text>
